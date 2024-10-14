@@ -1,9 +1,18 @@
 package ru.netology;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 public class PhoneBook {
-    // Заглушка для метода add
+    private Map<String, String> contacts;
+
+    public PhoneBook() {
+        contacts = new TreeMap<>();
+    }
+
     public int add(String name, String number) {
-        return 0;
+        contacts.put(name, number);
+        return contacts.size();
     }
 
     // Другие методы будут добавлены позже
