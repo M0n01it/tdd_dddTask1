@@ -38,4 +38,20 @@ public class PhoneBookTest {
         List<String> expected = List.of("Алексей Александров", "Борис Борисов", "Иван Иванов");
         assertEquals(expected, names, "Имена должны быть отсортированы в алфавном порядке");
     }
+
+    @Test
+    public void testFindByNameExisting() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Иван Иванов", "1234567890");
+        String number = phoneBook.findByName("Иван Иванов");
+        assertEquals("1234567890", number, "Должно вернуть номер по имени");
+    }
+
+    @Test
+    public void testFindByNameNonExisting() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Иван Иванов", "1234567890");
+        String number = phoneBook.findByName("Пётр Петров");
+        assertNull(number, "Должно вернуть null, если имя не найдено");
+    }
 }
