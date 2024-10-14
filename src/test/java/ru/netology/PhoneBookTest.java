@@ -2,6 +2,7 @@ package ru.netology;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
 public class PhoneBookTest {
     @Test
@@ -25,5 +26,16 @@ public class PhoneBookTest {
         phoneBook.add("Иван Иванов", "1234567890");
         String name = phoneBook.findByNumber("0987654321");
         assertNull(name, "Должно вернуть null, если номер не найден");
+    }
+
+    @Test
+    public void testPrintAllNames() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Борис Борисов", "1111111111");
+        phoneBook.add("Алексей Александров", "2222222222");
+        phoneBook.add("Иван Иванов", "1234567890");
+        List<String> names = phoneBook.printAllNames();
+        List<String> expected = List.of("Алексей Александров", "Борис Борисов", "Иван Иванов");
+        assertEquals(expected, names, "Имена должны быть отсортированы в алфавном порядке");
     }
 }

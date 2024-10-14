@@ -3,6 +3,7 @@ package ru.netology;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.HashMap;
+import java.util.List;
 
 public class PhoneBook {
     private Map<String, String> contacts;
@@ -23,5 +24,7 @@ public class PhoneBook {
         return numberToName.get(number);
     }
 
-    // Другие методы будут добавлены позже
+    public List<String> printAllNames() {
+        return null;
+    }
 }
